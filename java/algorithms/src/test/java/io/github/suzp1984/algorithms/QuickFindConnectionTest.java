@@ -1,6 +1,9 @@
 package io.github.suzp1984.algorithms;
 
 import org.junit.Test;
+
+import java.util.function.Predicate;
+
 import static org.junit.Assert.assertEquals;
 
 public class QuickFindConnectionTest {
