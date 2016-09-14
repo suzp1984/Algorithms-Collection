@@ -1,4 +1,4 @@
-package io.github.suzp1984.algorithms;
+package io.github.suzp1984.algorithms.connection;
 
 import org.junit.Test;
 
