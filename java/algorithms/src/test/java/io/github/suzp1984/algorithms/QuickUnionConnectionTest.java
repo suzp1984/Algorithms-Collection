@@ -4,6 +4,8 @@ import static org.junit.Assert.assertEquals;
 
 import org.junit.Test;
 
+import io.github.suzp1984.algorithms.connection.QuickUnionConnection;
+
 public class QuickUnionConnectionTest {
 	 @Test
 	 public void testInt() {

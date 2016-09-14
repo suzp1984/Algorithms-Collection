@@ -1,4 +1,4 @@
-package io.github.suzp1984.algorithms;
+package io.github.suzp1984.algorithms.connection;
 
 import java.util.LinkedList;
 import java.util.List;
