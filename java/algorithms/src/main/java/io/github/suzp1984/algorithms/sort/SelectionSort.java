@@ -22,6 +22,10 @@ public class SelectionSort {
     }
 
     private static void exchage(Comparable[] a, int i, int j) {
+        if (i == j) {
+            return;
+        }
+
         Comparable tmp = a[j];
         a[j] = a[i];
         a[i] = tmp;
