@@ -12,8 +12,9 @@ public class SelectionSort {
                 if (less(a[j], a[min])) {
                     min = j;
                 }
-                exchage(a, i, min);
             }
+            
+            exchage(a, i, min);
         }
     }
 
