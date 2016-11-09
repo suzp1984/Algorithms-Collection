@@ -1,5 +1,8 @@
 package io.github.suzp1984.algorithms.tree;
 
+import java.util.Queue;
+import java.util.concurrent.LinkedBlockingQueue;
+
 /**
  * Created by jacobsu on 11/8/16.
  */
@@ -32,7 +35,9 @@ public class BinarySearchTree<Key extends Comparable<Key>, Value> {
     }
 
     public Iterable<Key> iterator() {
-
+        Queue<Key> q = new LinkedBlockingQueue<Key>();
+        inorder(root, q);
+        return q;
     }
 
     private Node put(Node x, Key key, Value value) {
@@ -51,6 +56,13 @@ public class BinarySearchTree<Key extends Comparable<Key>, Value> {
         }
 
         return x;
+    }
+
+    private void inorder(Node x, Queue<Key> q) {
+        if (x == null) return;
+        inorder(x.left, q);
+        q.add(x.key);
+        inorder(x.right, q);
     }
 
     private class Node {
