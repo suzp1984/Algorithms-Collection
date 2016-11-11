@@ -7,45 +7,25 @@ using namespace std;
 
 int main() {
     int a[10] = {1, 5, 4, 3, 2, 6, 9, 7, 8, 10};
-
     element_sort::selection_sort(a, 10);
-    // selectionSort(a, 10);
-    for (int i = 0; i < 10; i++) {
-        cout << a[i] << " ";
-    }
-    cout << endl;
+    sort_helper::printArray(a, 10);
 
     float f[4] = {4.2, 3.2, 5.1, 1.0};
-
     element_sort::selection_sort(f, 4);
-    // selectionSort(f, 4);
-    for (int i = 0; i < 4; ++i) {
-        cout << f[i] << " ";
-    }
-    cout << endl;
+    sort_helper::printArray(f, 4);
 
     string c[4] = {"B", "C", "A", "D"};
     element_sort::selection_sort(c, 4);
-
-    for (int i = 0; i < 4; ++i) {
-        cout << c[i] << " ";
-    }
-    cout << endl;
+    sort_helper::printArray(c, 4);
 
     student s[4] = {{"D", 23}, {"A", 11},  {"C", 49}, {"B", 41}};
     element_sort::selection_sort(s, 4);
-    for (int i = 0; i < 4; ++i) {
-        cout << s[i];
-    }
-    cout << endl;
+    sort_helper::printArray(s, 4);
 
     int n = 1000;
     int* arr = sort_helper::generateRandomArray(n, 0, n);
     element_sort::selection_sort(arr, n);
-    for (int i = 0; i < n; ++i) {
-        cout << arr[i] << " ";
-    }
-    cout << endl;
+    sort_helper::printArray(arr, n);
 
     delete[] arr;
 
