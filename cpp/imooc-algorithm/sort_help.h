@@ -20,5 +20,16 @@ namespace sort_helper {
 
         cout << endl;
     }
+
+    template<typename T>
+    void test_sort(string sort_name, void(*sort)(T[], int), T arr[], int n) {
+        clock_t start = clock();
+
+        sort(arr, n);
+
+        clock_t end = clock();
+
+        cout << sort_name << " : " << double(end - start)/CLOCKS_PER_SEC << " s" << endl;
+    }
 }
 #endif //IMOOC_ALGORITHM_SORT_HELP_H_H

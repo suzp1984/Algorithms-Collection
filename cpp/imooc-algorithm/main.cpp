@@ -24,7 +24,7 @@ int main() {
 
     int n = 1000;
     int* arr = sort_helper::generateRandomArray(n, 0, n);
-    element_sort::selection_sort(arr, n);
+    sort_helper::test_sort("selection sort", element_sort::selection_sort, arr, n);
     sort_helper::printArray(arr, n);
 
     delete[] arr;
