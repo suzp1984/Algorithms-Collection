@@ -19,7 +19,7 @@ int main() {
     sort_helper::printArray(c, 4);
 
     student s[4] = {{"D", 23}, {"A", 11},  {"C", 49}, {"B", 41}};
-    element_sort::selection_sort(s, 4);
+    sort_helper::test_sort("insertion sort", element_sort::insertion_sort, s, 4);
     sort_helper::printArray(s, 4);
 
     int n = 1000;
