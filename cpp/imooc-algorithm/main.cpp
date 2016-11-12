@@ -40,5 +40,32 @@ int main() {
 
     delete[] arr3;
 
+    n = 10000;
+    int* merge_arr = sort_helper::generateRandomArray(n, 0, n);
+    int* merge2_arr = sort_helper::copy_array(merge_arr, n);
+    sort_helper::test_sort("merge sort", element_sort::merge_sort, merge_arr, n);
+    sort_helper::test_sort("insertion sort", element_sort::insertion_sort_improve, merge2_arr, n);
+    sort_helper::printArray(merge_arr, n);
+
+    delete[] merge2_arr;
+    delete[] merge_arr;
+
+    int* merge3_arr = sort_helper::generateRandomArray(n, 0, n);
+    int* merge4_arr = sort_helper::copy_array(merge3_arr, n);
+    sort_helper::test_sort("merge sort", element_sort::merge_sort, merge3_arr, n);
+    sort_helper::test_sort("improved merge sort", element_sort::merge_sort_improved, merge4_arr, n);
+    sort_helper::printArray(merge4_arr, n);
+
+    delete[] merge3_arr;
+    delete[] merge4_arr;
+
+    int* merge5_arr = sort_helper::generateRandomArray(n, 0, n);
+    int* merge6_arr = sort_helper::copy_array(merge5_arr, n);
+    sort_helper::test_sort("merge sort", element_sort::merge_sort, merge5_arr, n);
+    sort_helper::test_sort("bottom up merge sort", element_sort::merge_sort_bottom_up, merge6_arr, n);
+
+    delete[] merge5_arr;
+    delete[] merge6_arr;
+
     return 0;
 }

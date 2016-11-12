@@ -9,7 +9,7 @@
 
 namespace sort_helper {
 
-    int* generateRandomArray(int n, int range_l, int range_r) {
+    int *generateRandomArray(int n, int range_l, int range_r) {
         assert(range_l < range_r);
 
         int *arr = new int[n];
@@ -22,8 +22,8 @@ namespace sort_helper {
         return arr;
     }
 
-    int* generateNearlyOrderedArray(int n, int swap_times) {
-        int* arr = new int[n];
+    int *generateNearlyOrderedArray(int n, int swap_times) {
+        int *arr = new int[n];
 
         for (int i = 0; i < n; i++)
             arr[i] = i;
@@ -31,11 +31,18 @@ namespace sort_helper {
         srand(time(NULL));
 
         for (int i = 0; i < swap_times; ++i) {
-            int posx = rand()%n;
-            int posy = rand()%n;
+            int posx = rand() % n;
+            int posy = rand() % n;
 
             swap(arr[posx], arr[posy]);
         }
+    }
+
+    int* copy_array(int arr[], int n) {
+        int* ret = new int[n];
+        copy(arr, arr+n, ret);
+
+        return ret;
     }
 
 }
