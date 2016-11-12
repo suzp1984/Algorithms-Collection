@@ -26,12 +26,35 @@ namespace element_sort {
 
     template <typename T>
     void insertion_sort(T arr[], int n) {
-        for (int i = 0; i < n; ++i) {
+        for (int i = 1; i < n; ++i) {
             for (int j = i; j > 0; --j) {
                 if (arr[j] < arr[j - 1]) {
                     swap(arr[j], arr[j - 1]);
                 } else {
                     break;
+                }
+            }
+        }
+    }
+
+    template <typename T>
+    void insertion_sort_improve(T arr[], int n) {
+        for (int i = 1; i < n; i++) {
+            T e = arr[i];
+            int j;
+            for (j = i; j > 0 && arr[j-1] > e; j--) {
+                arr[j] = arr[j-1];
+            }
+            arr[j] = e;
+        }
+    }
+
+    template <typename T>
+    void bubble_sort(T arr[], int n) {
+        for (int i = 0; i < n; i++) {
+            for (int j = 1; j < n - i; j++) {
+                if (arr[j] < arr[j-1]) {
+                    swap(arr[j], arr[j-1]);
                 }
             }
         }

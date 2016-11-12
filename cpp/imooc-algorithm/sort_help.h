@@ -11,6 +11,7 @@ using namespace std;
 
 namespace sort_helper {
     int* generateRandomArray(int n, int range_l, int range_r);
+    int* generateNearlyOrderedArray(int n, int swap_times);
 
     template<typename T>
     void printArray(T arr[], int n) {
@@ -30,6 +31,13 @@ namespace sort_helper {
         clock_t end = clock();
 
         cout << sort_name << " : " << double(end - start)/CLOCKS_PER_SEC << " s" << endl;
+    }
+
+    int* copy_array(int arr[], int n) {
+        int* ret = new int[n];
+        copy(arr, arr+n, ret);
+
+        return ret;
     }
 }
 #endif //IMOOC_ALGORITHM_SORT_HELP_H_H

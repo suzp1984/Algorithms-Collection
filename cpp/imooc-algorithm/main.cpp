@@ -24,10 +24,21 @@ int main() {
 
     int n = 1000;
     int* arr = sort_helper::generateRandomArray(n, 0, n);
-    sort_helper::test_sort("selection sort", element_sort::selection_sort, arr, n);
+    sort_helper::test_sort("insertion sort", element_sort::insertion_sort, arr, n);
     sort_helper::printArray(arr, n);
-
     delete[] arr;
+
+    int* arr2 = sort_helper::generateRandomArray(n, 0, n);
+    sort_helper::test_sort("insertion sort improved", element_sort::insertion_sort_improve, arr2, n);
+    sort_helper::printArray(arr2, n);
+
+    delete[] arr2;
+
+    int* arr3 = sort_helper::generateRandomArray(n, 0, n);
+    sort_helper::test_sort("Bubble sort", element_sort::bubble_sort, arr3, n);
+    sort_helper::printArray(arr3, n);
+
+    delete[] arr3;
 
     return 0;
 }

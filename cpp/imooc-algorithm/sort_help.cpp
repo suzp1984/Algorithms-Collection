@@ -21,5 +21,22 @@ namespace sort_helper {
 
         return arr;
     }
+
+    int* generateNearlyOrderedArray(int n, int swap_times) {
+        int* arr = new int[n];
+
+        for (int i = 0; i < n; i++)
+            arr[i] = i;
+
+        srand(time(NULL));
+
+        for (int i = 0; i < swap_times; ++i) {
+            int posx = rand()%n;
+            int posy = rand()%n;
+
+            swap(arr[posx], arr[posy]);
+        }
+    }
+
 }
 
