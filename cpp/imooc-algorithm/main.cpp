@@ -67,5 +67,10 @@ int main() {
     delete[] merge5_arr;
     delete[] merge6_arr;
 
+    int* quick_arr = sort_helper::generateRandomArray(n, 0, n);
+    sort_helper::test_sort("quick sork", element_sort::quick_sort, quick_arr, n);
+
+    delete[] quick_arr;
+
     return 0;
 }
