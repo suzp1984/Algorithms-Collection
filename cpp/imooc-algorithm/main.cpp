@@ -72,12 +72,22 @@ int main() {
 //
 //    delete[] quick_arr;
 
-    int n = 10000;
-    int* nearly_ordered_a = sort_helper::generateNearlyOrderedArray(n, 2);
-    sort_helper::test_sort("random sort", element_sort::quick_sort_random, nearly_ordered_a, n);
-    sort_helper::printArray(nearly_ordered_a, n);
+//    int n = 10000;
+//    int* nearly_ordered_a = sort_helper::generateNearlyOrderedArray(n, 2);
+//    sort_helper::test_sort("random sort", element_sort::quick_sort_random, nearly_ordered_a, n);
+//    sort_helper::printArray(nearly_ordered_a, n);
+//
+//    delete[] nearly_ordered_a;
 
-    delete[] nearly_ordered_a;
+    int n = 10000;
+    int* arr = sort_helper::generateRandomArray(n, 0, n);
+    //sort_helper::test_sort("quick sort double partition", element_sort::quick_sort_double_partition, arr, n);
+    sort_helper::test_sort("quick sort triple partition", element_sort::quick_sort_triple_partition, arr, n);
+    sort_helper::printArray(arr, n);
+
+    delete[] arr;
+
+
 
     return 0;
 }

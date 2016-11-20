@@ -209,6 +209,83 @@ namespace element_sort {
         __quick_sort_random(arr, 0, n-1);
     }
 
+    template <typename T>
+    int __partition_double_partition(T arr[], int l, int r) {
+        swap(arr[l], arr[rand()%(r-l+1) + l]);
+        T v = arr[l];
+
+        int i = l+1;
+        int j = r;
+        while (true) {
+            while (i <= r && arr[i] < v) i++;
+            while (j >= l + 1 && arr[j] > v) j--;
+            if (i > j) break;
+            swap(arr[i], arr[j]);
+            i++;
+            j--;
+        }
+
+        swap(arr[l], arr[j]);
+
+        return j;
+    }
+
+    template <typename T>
+    void __quick_sort_double_partition(T arr[], int l, int r) {
+        if (l >= r) {
+            return;
+        }
+
+        int p = __partition_double_partition(arr, l, r);
+        __quick_sort_double_partition(arr, l, p-1);
+        __quick_sort_double_partition(arr, p+1, r);
+    }
+
+    template <typename T>
+    void quick_sort_double_partition(T arr[], int n) {
+        srand(time(NULL));
+
+        __quick_sort_double_partition(arr, 0, n-1);
+    }
+
+    template <typename T>
+    void __quick_sort_triple_partition(T arr[], int l, int r) {
+
+        if (r <= l) {
+            return;
+        }
+        
+        swap(arr[l], arr[rand()%(r-l+1) + l]);
+        T v = arr[l];
+
+        int lt = l;
+        int gt = r+1;
+        int i = l+1;
+        while (i < gt) {
+            if (arr[i] < v) {
+                swap(arr[i], arr[lt+1]);
+                lt++;
+                i++;
+            } else if (arr[i] > v) {
+                swap(arr[i], arr[gt-1]);
+                gt--;
+            } else {
+                i++;
+            }
+        }
+
+        swap(arr[l], arr[lt]);
+
+        __quick_sort_triple_partition(arr, l, lt-1);
+        __quick_sort_triple_partition(arr, gt, r);
+
+    }
+
+    template <typename T>
+    void quick_sort_triple_partition(T arr[], int n) {
+        srand(time(NULL));
+        __quick_sort_triple_partition(arr, 0, n-1);
+    }
 }
 
 #endif //IMOOC_ALGORITHM_ELEMENT_SORT_H_H
