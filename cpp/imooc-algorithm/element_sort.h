@@ -254,7 +254,7 @@ namespace element_sort {
         if (r <= l) {
             return;
         }
-        
+
         swap(arr[l], arr[rand()%(r-l+1) + l]);
         T v = arr[l];
 
