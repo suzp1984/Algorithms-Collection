@@ -176,6 +176,39 @@ namespace element_sort {
         __quick_sort(arr, 0, n-1);
     }
 
+    template <typename T>
+    int __partition_random(T arr[], int l, int r) {
+        swap(arr[l], arr[rand()%(r-l+1) + l]);
+
+        T v = arr[l];
+        int j = l;
+        for (int i = l + 1; i <= r; i++) {
+            if (arr[i] < v) {
+                swap(arr[++j], arr[i]);
+            }
+        }
+
+        swap(arr[l], arr[j]);
+        return j;
+    }
+
+    template <typename T>
+    void __quick_sort_random(T arr[], int l, int r) {
+        if (l >= r) {
+            return;
+        }
+
+        int p = __partition_random(arr, l, r);
+        __quick_sort(arr, l, p-1);
+        __quick_sort(arr, p+1, r);
+    }
+
+    template <typename T>
+    void quick_sort_random(T arr[], int n) {
+        srand(time(NULL));
+        __quick_sort_random(arr, 0, n-1);
+    }
+
 }
 
 #endif //IMOOC_ALGORITHM_ELEMENT_SORT_H_H

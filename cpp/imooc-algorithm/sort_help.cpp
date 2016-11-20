@@ -36,6 +36,8 @@ namespace sort_helper {
 
             swap(arr[posx], arr[posy]);
         }
+
+        return arr;
     }
 
     int* copy_array(int arr[], int n) {
