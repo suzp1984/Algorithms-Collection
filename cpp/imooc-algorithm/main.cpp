@@ -2,6 +2,7 @@
 #include "student.h"
 #include "sort_help.h"
 #include "element_sort.h"
+#include "binary_search.h"
 
 using namespace std;
 
@@ -84,6 +85,9 @@ int main() {
     //sort_helper::test_sort("quick sort double partition", element_sort::quick_sort_double_partition, arr, n);
     sort_helper::test_sort("quick sort triple partition", element_sort::quick_sort_triple_partition, arr, n);
     sort_helper::printArray(arr, n);
+
+    int i = binary_search::binary_search(arr, n, 500);
+    cout << "binary search: i = " << i << endl;
 
     delete[] arr;
 
