@@ -1,4 +1,7 @@
-import { generateRandomArray, copyArray } from '../src/utils';
+import { generateRandomArray,
+         generateDuplicatedItemsArray,
+         generateNearlyOrderedArray,
+         copyArray } from '../src/utils';
 import { expect } from 'chai';
 
 describe('Utils', () => {
@@ -31,6 +34,26 @@ describe('Utils', () => {
             expect(b[0]).to.equal(1);
             expect(a[0]).to.equal(22);
 
+        });
+    });
+
+    describe('#generateDuplicatedItemsArray', () => {
+        it('should generate an array with duplicated values', () => {
+            let a = generateDuplicatedItemsArray(10, 8);
+            a.forEach((p) => {
+                expect(p).to.be.a('number');
+            });
+
+            expect(a.length).to.equal(10);
+        });
+    });
+
+    describe('#generateNearlyOrderedArray', () => {
+        it('should generate a nearly ordered array', () => {
+            let a = generateNearlyOrderedArray(10, 1);
+            a.forEach((p) => expect(p).to.be.a('number'));
+
+            expect(a.length).to.equal(10);
         });
     });
 });
