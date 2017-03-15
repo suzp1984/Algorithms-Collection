@@ -1,0 +1,21 @@
+{
+  "name": "algorithm-demo",
+  "version": "1.0.0",
+  "description": " common algorithm practices",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha --compilers js:babel-core/register  --recursive"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "babel-cli": "^6.24.0",
+    "babel-core": "^6.24.0",
+    "babel-preset-es2015": "^6.24.0",
+    "chai": "^3.5.0",
+    "mocha": "^3.2.0"
+  },
+  "babel": {
+    "presets": ["es2015"]
+  }
+}
