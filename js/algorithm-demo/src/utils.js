@@ -6,5 +6,9 @@ function generateRandomArray(n, left, right) {
     return r;
 }
 
-export { generateRandomArray };
+function copyArray(arr) {
+    return Array.from(arr);
+}
+
+export { generateRandomArray, copyArray };
 
