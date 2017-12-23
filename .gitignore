@@ -21,3 +21,6 @@ cmake-build-debug/
 
 node_modules/
 *~
+build/
+.gradle/
+out/
