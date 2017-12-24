@@ -52,4 +52,13 @@ fun main(args: Array<String>) {
     array4.bubbleSort()
     println("\n -- after bubble sort ---")
     array4.forEach { print("${it} ") }
+
+    val array5 = Array<Int>(10) {
+        Random().nextInt(10)
+    }
+    println("\nMerge Sort")
+    array5.forEach { print("${it} ") }
+    array5.mergeSort()
+    println("\n --- after merge sort ---")
+    array5.forEach { print("${it} ") }
 }

@@ -52,3 +52,40 @@ fun <T : Comparable<T>> Array<T>.bubbleSort() {
         }
     }
 }
+
+
+fun <T : Comparable<T>> Array<T>.mergeSort() {
+
+    fun <T : Comparable<T>> Array<T>.__merge(l : Int, mid : Int, r : Int) {
+        val aux = copyOfRange(l, r + 1)
+
+        var i = l
+        var j = mid + 1
+        (l until r + 1).forEach {
+            if (i > mid) {
+                this[it] = aux[j-l]
+                j++
+            } else if (j > r) {
+                this[it] = aux[i-l]
+                i++
+            } else if (aux[i-l] < aux[j-l]) {
+                this[it] = aux[i-l]
+                i++
+            } else {
+                this[it] = aux[j-l]
+                j++
+            }
+        }
+    }
+
+    fun <T : Comparable<T>> Array<T>.__mergeSort(l : Int, r : Int) {
+        if (l >= r) return
+
+        val mid = l/2 + r/2
+        __mergeSort(l, mid)
+        __mergeSort(mid+1, r)
+        __merge(l, mid, r)
+    }
+
+    __mergeSort(0, size-1)
+}
