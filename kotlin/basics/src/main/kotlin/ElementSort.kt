@@ -26,3 +26,20 @@ fun <T : Comparable<T>> Array<T>.insertionSort() {
                 .forEach { swap(it, it - 1) }
     }
 }
+
+fun <T : Comparable<T>> Array<T>.improvedInsertionSort() {
+    (1 until size).forEach { i ->
+        val t = this[i]
+
+        val seqIndex = (i downTo 1)
+                .asSequence()
+                .takeWhile { this[it-1] > t }
+
+        seqIndex.forEach { this[it] = this[it-1] }
+
+        val lastIndex = seqIndex.lastOrNull()
+        if (lastIndex != null) {
+            this[lastIndex - 1] = t
+        }
+    }
+}

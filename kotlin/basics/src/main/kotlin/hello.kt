@@ -1,7 +1,4 @@
-import io.github.suzp1984.algorithms.UnionFind
-import io.github.suzp1984.algorithms.UnionFind2
-import io.github.suzp1984.algorithms.insertionSort
-import io.github.suzp1984.algorithms.selectionSort
+import io.github.suzp1984.algorithms.*
 import java.util.*
 
 fun main(args: Array<String>) {
@@ -23,7 +20,6 @@ fun main(args: Array<String>) {
     val array1 = Array<Int>(10) {
         Random().nextInt(10)
     }
-
     println("Selection Sort")
     array1.forEach { print("${it} ") }
     println("\n ---after sort---")
@@ -33,10 +29,19 @@ fun main(args: Array<String>) {
     val array2 = Array<Int>(10) {
         Random().nextInt(10)
     }
-
     println("\nInsertion Sort")
     array2.forEach { print("${it} ") }
     array2.insertionSort()
     println("\n ---after sort---")
     array2.forEach { print("${it} ") }
+
+    val array3 = Array<Int>(10) {
+        Random().nextInt(10)
+    }
+    println("\nImproved Insertion Sort")
+    array3.forEach { print("${it} ") }
+    array3.improvedInsertionSort()
+    println("\n ---after sort---")
+    array3.forEach { print("${it} ") }
+    
 }
