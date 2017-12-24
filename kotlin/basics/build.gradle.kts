@@ -1,3 +1,4 @@
+import org.gradle.kotlin.dsl.*
 import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 
 group = "io.github.suzp1984"
@@ -28,10 +29,9 @@ plugins {
     application
 }
 
-//application {
-//    mainClassName = "samples.HelloWorld"
-//}
-
+application {
+    mainClassName = "HelloKt"
+}
 
 val kotlin_version: String by extra
 
@@ -51,3 +51,22 @@ tasks.withType<KotlinCompile> {
     kotlinOptions.jvmTarget = "1.8"
 }
 
+val fatJar = task("fatJar", type = Jar::class) {
+    baseName = "${project.name}-fat"
+    manifest {
+        attributes["Main-Class"] = "HelloKt"
+    }
+
+    from(
+            configurations.runtime.map {
+                if (it.isDirectory) it else zipTree(it)
+            }
+    )
+    with(tasks["jar"] as CopySpec)
+}
+
+tasks {
+    "build" {
+        dependsOn(fatJar)
+    }
+}
