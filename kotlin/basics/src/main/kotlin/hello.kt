@@ -70,4 +70,13 @@ fun main(args: Array<String>) {
     array6.bottomUpMergeSort()
     println("\n --- after bottom up merge sort ---")
     array6.forEach { print("${it} ") }
+
+    val array7 = Array<Int>(10) {
+        Random().nextInt(10)
+    }
+    println("\nQuick Sort")
+    array7.forEach { print("${it} ") }
+    array7.quickSort()
+    println("\n -- after quick sort ---")
+    array7.forEach { print("${it} ") }
 }
