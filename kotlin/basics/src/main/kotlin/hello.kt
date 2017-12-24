@@ -61,4 +61,13 @@ fun main(args: Array<String>) {
     array5.mergeSort()
     println("\n --- after merge sort ---")
     array5.forEach { print("${it} ") }
+
+    val array6 = Array<Int>(10) {
+        Random().nextInt(10)
+    }
+    println("\nBottom up Merge Sort")
+    array6.forEach { print("${it} ") }
+    array6.bottomUpMergeSort()
+    println("\n --- after bottom up merge sort ---")
+    array6.forEach { print("${it} ") }
 }

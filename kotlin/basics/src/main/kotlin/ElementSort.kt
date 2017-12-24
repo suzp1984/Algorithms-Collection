@@ -1,5 +1,7 @@
 package io.github.suzp1984.algorithms
 
+import kotlin.math.min
+
 fun <T> Array<T>.swap(i : Int, j : Int) {
     val t = this[i]
     this[i] = this[j]
@@ -53,30 +55,34 @@ fun <T : Comparable<T>> Array<T>.bubbleSort() {
     }
 }
 
+private fun <T : Comparable<T>> Array<T>.__merge(l : Int, mid : Int, r : Int) {
+    val aux = copyOfRange(l, r + 1)
 
-fun <T : Comparable<T>> Array<T>.mergeSort() {
-
-    fun <T : Comparable<T>> Array<T>.__merge(l : Int, mid : Int, r : Int) {
-        val aux = copyOfRange(l, r + 1)
-
-        var i = l
-        var j = mid + 1
-        (l until r + 1).forEach {
-            if (i > mid) {
+    var i = l
+    var j = mid + 1
+    (l until r + 1).forEach {
+        when {
+            i > mid -> {
                 this[it] = aux[j-l]
                 j++
-            } else if (j > r) {
+            }
+            j > r -> {
                 this[it] = aux[i-l]
                 i++
-            } else if (aux[i-l] < aux[j-l]) {
+            }
+            aux[i-l] < aux[j-l] -> {
                 this[it] = aux[i-l]
                 i++
-            } else {
+            }
+            else -> {
                 this[it] = aux[j-l]
                 j++
             }
         }
     }
+}
+
+fun <T : Comparable<T>> Array<T>.mergeSort() {
 
     fun <T : Comparable<T>> Array<T>.__mergeSort(l : Int, r : Int) {
         if (l >= r) return
@@ -88,4 +94,17 @@ fun <T : Comparable<T>> Array<T>.mergeSort() {
     }
 
     __mergeSort(0, size-1)
+}
+
+fun <T : Comparable<T>> Array<T>.bottomUpMergeSort() {
+    var sz = 1
+    while (sz <= size) {
+        var i = 0
+        while (i + sz < size) {
+            __merge(i, i + sz - 1, min(i + sz + sz - 1, size - 1))
+            i += sz + sz
+        }
+
+        sz += sz
+    }
 }
