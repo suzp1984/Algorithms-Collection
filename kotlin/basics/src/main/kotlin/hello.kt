@@ -43,5 +43,13 @@ fun main(args: Array<String>) {
     array3.improvedInsertionSort()
     println("\n ---after sort---")
     array3.forEach { print("${it} ") }
-    
+
+    val array4 = Array<Int>(10) {
+        Random().nextInt(10)
+    }
+    println("\nBubble Sort")
+    array4.forEach { print("${it} ") }
+    array4.bubbleSort()
+    println("\n -- after bubble sort ---")
+    array4.forEach { print("${it} ") }
 }

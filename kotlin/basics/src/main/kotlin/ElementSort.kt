@@ -38,8 +38,17 @@ fun <T : Comparable<T>> Array<T>.improvedInsertionSort() {
         seqIndex.forEach { this[it] = this[it-1] }
 
         val lastIndex = seqIndex.lastOrNull()
-        if (lastIndex != null) {
-            this[lastIndex - 1] = t
+        if (lastIndex != null) this[lastIndex - 1] = t
+    }
+}
+
+
+fun <T : Comparable<T>> Array<T>.bubbleSort() {
+    (0 until size).forEach {
+        (1 until size - it).forEach {
+            if (this[it] < this[it-1]) {
+                swap(it, it-1)
+            }
         }
     }
 }
