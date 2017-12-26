@@ -194,3 +194,36 @@ fun <T : Comparable<T>> Array<T>.quickSortDoublePartition() {
 
     __quickSort(0, size-1)
 }
+
+fun <T : Comparable<T>> Array<T>.quickSortTriplePartition() {
+    fun <T : Comparable<T>> Array<T>.__triple_partition(l : Int, r : Int) {
+        if (l >= r) {
+            return
+        }
+
+        swap(l, Random().nextInt(r - l + 1) + l)
+        val t = this[l]
+        var lt = l
+        var gt = r + 1;
+        var i = l + 1;
+        while (i < gt) {
+            if (this[i] < t) {
+                swap(i, lt + 1)
+                lt++
+                i++
+            } else if (this[i] > t) {
+                swap(i, gt - 1)
+                gt--
+            } else {
+                i++
+            }
+        }
+
+        swap(l, lt)
+
+        __triple_partition(l, lt - 1)
+        __triple_partition(gt, r)
+    }
+
+    __triple_partition(0, size - 1)
+}
