@@ -79,4 +79,13 @@ fun main(args: Array<String>) {
     array7.quickSort()
     println("\n -- after quick sort ---")
     array7.forEach { print("${it} ") }
+
+    val array8 = Array<Int>(10) {
+        Random().nextInt(10)
+    }
+    println("\nRandom Quick Sort")
+    array8.forEach { print("${it} ") }
+    array8.quickSort()
+    println("\n --- after random quick sort ---")
+    array8.forEach { print("${it} ") }
 }

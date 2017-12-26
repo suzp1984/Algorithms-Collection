@@ -1,5 +1,6 @@
 package io.github.suzp1984.algorithms
 
+import java.util.*
 import kotlin.math.min
 
 fun <T> Array<T>.swap(i : Int, j : Int) {
@@ -112,6 +113,33 @@ fun <T : Comparable<T>> Array<T>.bottomUpMergeSort() {
 fun <T : Comparable<T>> Array<T>.quickSort() {
 
     fun <T : Comparable<T>> Array<T>.__partition(l : Int, r : Int) : Int {
+        val t = this[l]
+        var j = l
+        (l+1 until r+1).forEach {
+            if (this[it] < t) {
+                swap(++j, it)
+            }
+        }
+
+        swap(l, j)
+        return j
+    }
+
+    fun <T : Comparable<T>> Array<T>.__quickSort(l : Int, r : Int) {
+        if (l >= r) return
+
+        val p = __partition(l, r)
+        __quickSort(l, p - 1)
+        __quickSort(p + 1, r)
+    }
+
+    __quickSort(0, size-1)
+}
+
+fun <T : Comparable<T>> Array<T>.quickSortRandom() {
+    fun <T : Comparable<T>> Array<T>.__partition(l : Int, r : Int) : Int {
+        swap(l, Random().nextInt(r - l + 1))
+
         val t = this[l]
         var j = l
         (l+1 until r+1).forEach {
