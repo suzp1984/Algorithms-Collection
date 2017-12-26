@@ -85,7 +85,17 @@ fun main(args: Array<String>) {
     }
     println("\nRandom Quick Sort")
     array8.forEach { print("${it} ") }
-    array8.quickSort()
+    array8.quickSortRandom()
     println("\n --- after random quick sort ---")
     array8.forEach { print("${it} ") }
+
+    val array9 = Array<Int>(10) {
+        Random().nextInt(10)
+    }
+    println("\nDouble Partition Quick Sort")
+    array9.forEach { print("${it} ") }
+    array9.quickSortDoublePartition()
+    println("\n --- after Double Partition quick sort ---")
+    array9.forEach { print("${it} ") }
+
 }

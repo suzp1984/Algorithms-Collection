@@ -138,7 +138,7 @@ fun <T : Comparable<T>> Array<T>.quickSort() {
 
 fun <T : Comparable<T>> Array<T>.quickSortRandom() {
     fun <T : Comparable<T>> Array<T>.__partition(l : Int, r : Int) : Int {
-        swap(l, Random().nextInt(r - l + 1))
+        swap(l, Random().nextInt(r - l + 1) + l)
 
         val t = this[l]
         var j = l
@@ -156,6 +156,38 @@ fun <T : Comparable<T>> Array<T>.quickSortRandom() {
         if (l >= r) return
 
         val p = __partition(l, r)
+        __quickSort(l, p - 1)
+        __quickSort(p + 1, r)
+    }
+
+    __quickSort(0, size-1)
+}
+
+fun <T : Comparable<T>> Array<T>.quickSortDoublePartition() {
+    fun <T : Comparable<T>> Array<T>.__double_partition(l : Int, r : Int) : Int {
+        swap(l, Random().nextInt(r - l + 1) + l)
+
+        val t = this[l]
+        var i = l + 1
+        var j = r
+        while (true) {
+            while (i <= r && this[i] < t) i++
+            while (j >= l + 1 && this[j] > t) j--
+            if (i > j) break
+            swap(i, j)
+            i++
+            j--
+        }
+
+        swap(l, j)
+
+        return j
+    }
+
+    fun <T : Comparable<T>> Array<T>.__quickSort(l : Int, r : Int) {
+        if (l >= r) return
+
+        val p = __double_partition(l, r)
         __quickSort(l, p - 1)
         __quickSort(p + 1, r)
     }
