@@ -21,89 +21,89 @@ fun main(args: Array<String>) {
         Random().nextInt(10)
     }
     println("Selection Sort")
-    array1.forEach { print("${it} ") }
+    array1.printItSelf()
     println("\n ---after sort---")
     array1.selectionSort()
-    array1.forEach { print("${it} ") }
+    array1.printItSelf()
 
     val array2 = Array<Int>(10) {
         Random().nextInt(10)
     }
     println("\nInsertion Sort")
-    array2.forEach { print("${it} ") }
+    array2.printItSelf()
     array2.insertionSort()
     println("\n ---after sort---")
-    array2.forEach { print("${it} ") }
+    array2.printItSelf()
 
     val array3 = Array<Int>(10) {
         Random().nextInt(10)
     }
     println("\nImproved Insertion Sort")
-    array3.forEach { print("${it} ") }
+    array3.printItSelf()
     array3.improvedInsertionSort()
     println("\n ---after sort---")
-    array3.forEach { print("${it} ") }
+    array3.printItSelf()
 
     val array4 = Array<Int>(10) {
         Random().nextInt(10)
     }
     println("\nBubble Sort")
-    array4.forEach { print("${it} ") }
+    array4.printItSelf()
     array4.bubbleSort()
     println("\n -- after bubble sort ---")
-    array4.forEach { print("${it} ") }
+    array4.printItSelf()
 
     val array5 = Array<Int>(10) {
         Random().nextInt(10)
     }
     println("\nMerge Sort")
-    array5.forEach { print("${it} ") }
+    array5.printItSelf()
     array5.mergeSort()
     println("\n --- after merge sort ---")
-    array5.forEach { print("${it} ") }
+    array5.printItSelf()
 
     val array6 = Array<Int>(10) {
         Random().nextInt(10)
     }
     println("\nBottom up Merge Sort")
-    array6.forEach { print("${it} ") }
+    array6.printItSelf()
     array6.bottomUpMergeSort()
     println("\n --- after bottom up merge sort ---")
-    array6.forEach { print("${it} ") }
+    array6.printItSelf()
 
     val array7 = Array<Int>(10) {
         Random().nextInt(10)
     }
     println("\nQuick Sort")
-    array7.forEach { print("${it} ") }
+    array7.printItSelf()
     array7.quickSort()
     println("\n -- after quick sort ---")
-    array7.forEach { print("${it} ") }
+    array7.printItSelf()
 
     val array8 = Array<Int>(10) {
         Random().nextInt(10)
     }
     println("\nRandom Quick Sort")
-    array8.forEach { print("${it} ") }
+    array8.printItSelf()
     array8.quickSortRandom()
     println("\n --- after random quick sort ---")
-    array8.forEach { print("${it} ") }
+    array8.printItSelf()
 
     val array9 = Array<Int>(10) {
         Random().nextInt(10)
     }
     println("\nDouble Partition Quick Sort")
-    array9.forEach { print("${it} ") }
+    array9.printItSelf()
     array9.quickSortDoublePartition()
     println("\n --- after Double Partition quick sort ---")
-    array9.forEach { print("${it} ") }
+    array9.printItSelf()
 
     val array10 = Array<Int>(10) {
         Random().nextInt(10)
     }
     println("\nTriple Partition Quick Sort")
-    array10.forEach { print("${it} ") }
+    array10.printItSelf()
     array10.quickSortTriplePartition()
     println("\n --- after Triple Partition quick sort ---")
-    array10.forEach { print("${it} ") }
+    array10.printItSelf()
 }
