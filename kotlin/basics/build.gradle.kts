@@ -6,7 +6,7 @@ version = "1.0-SNAPSHOT"
 
 buildscript {
     var kotlin_version: String by extra
-    kotlin_version = "1.2.0"
+    kotlin_version = "1.2.10"
 
     repositories {
         mavenCentral()
