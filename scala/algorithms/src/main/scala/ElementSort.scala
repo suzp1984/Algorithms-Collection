@@ -52,6 +52,16 @@ object ElementSort {
         array(index-1) = temp
       }
     }
+
+    def bubbleSort(): Unit = {
+      array.indices.foreach { i =>
+        (1 until array.length - i).foreach { j =>
+          if (array(j) < array(j-1)) {
+            swap(j, j-1)
+          }
+        }
+      }
+    }
   }
 }
 

@@ -30,5 +30,12 @@ object Main {
     array2.insertionSortImproved()
     println("\n After Improved Insertion Sort")
     array2.printSelf()
+
+    println("\n Bubble Sort")
+    val array3 = arrayOf[Int](10, Random.nextInt(10))
+    array3.printSelf()
+    array3.bubbleSort()
+    println("\n After Bubble Sort")
+    array3.printSelf()
   }
 }
