@@ -62,6 +62,42 @@ object ElementSort {
         }
       }
     }
+
+    private def __merge(l : Int, mid : Int, r : Int): Unit = {
+      val aux = array.slice(l, r + 1)
+      var i = l
+      var j = mid + 1
+      (l to r).foreach { k =>
+        if (i > mid) {
+          array(k) = aux(j-l)
+          j += 1
+        } else if (j > r) {
+          array(k) = aux(i-l)
+          i += 1
+        } else if (aux(i - l) < aux(j - l)) {
+          array(k) = aux(i-l)
+          i += 1
+        } else {
+          array(k) = aux(j-l)
+          j += 1
+        }
+      }
+    }
+
+    private def __mergeSort(l : Int, r : Int): Unit = {
+      if (l >= r) {
+        return
+      }
+
+      val mid = l/2 + r/2
+      __mergeSort(l, mid)
+      __mergeSort(mid+1, r)
+      __merge(l, mid, r)
+    }
+
+    def mergeSort(): Unit = {
+      __mergeSort(0, array.length - 1)
+    }
   }
 }
 

@@ -37,5 +37,12 @@ object Main {
     array3.bubbleSort()
     println("\n After Bubble Sort")
     array3.printSelf()
+
+    println("\n Merge Sort")
+    val array4 = arrayOf(10, Random.nextInt(10))
+    array4.printSelf()
+    array4.mergeSort()
+    println("\n After Merge Sort")
+    array4.printSelf()
   }
 }
