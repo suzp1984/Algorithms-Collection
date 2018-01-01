@@ -23,5 +23,12 @@ object Main {
     array1.insertionSort()
     println("\n After Insertion Sort")
     array1.printSelf()
+
+    println("\n Improved Insertion Sort")
+    val array2 = arrayOf[Int](10, Random.nextInt(10))
+    array2.printSelf()
+    array2.insertionSortImproved()
+    println("\n After Improved Insertion Sort")
+    array2.printSelf()
   }
 }

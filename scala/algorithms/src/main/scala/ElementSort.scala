@@ -30,9 +30,26 @@ object ElementSort {
           if (b) {
             swap(j, j - 1)
           }
-          
+
           b
         }
+      }
+    }
+
+    def insertionSortImproved(): Unit = {
+      (1 until array.length).foreach { i =>
+        val temp = array(i)
+        var index = i
+        (i until 0 by -1).takeWhile { j =>
+          val b = array(j-1) > temp
+          if (b) {
+            array(j) = array(j-1)
+            index = j
+          }
+          b
+        }
+
+        array(index-1) = temp
       }
     }
   }
