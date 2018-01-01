@@ -16,5 +16,12 @@ object Main {
     array0.selectionSort()
     println("\n After Selection Sort")
     array0.printSelf()
+
+    println("\n Insertio Sort")
+    val array1 = arrayOf[Int](10, Random.nextInt(10))
+    array1.printSelf()
+    array1.insertionSort()
+    println("\n After Insertion Sort")
+    array1.printSelf()
   }
 }

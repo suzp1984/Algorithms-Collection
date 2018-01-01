@@ -22,6 +22,19 @@ object ElementSort {
         swap(i, minIndex)
       }
     }
+
+    def insertionSort(): Unit = {
+      (1 until array.length).foreach { i =>
+        (i until 0 by -1).takeWhile { j =>
+          val b = array(j) < array(j-1)
+          if (b) {
+            swap(j, j - 1)
+          }
+          
+          b
+        }
+      }
+    }
   }
 }
 
