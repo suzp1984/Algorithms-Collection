@@ -65,5 +65,12 @@ object Main {
     array7.randomQuickSort()
     println("\n After Random Quick Sort")
     array7.printSelf()
+
+    println("\n Double Partition Quick Sort")
+    val array8 = arrayOf(10, Random.nextInt(10))
+    array8.printSelf()
+    array8.doublePartitionQuickSort()
+    println("\n After Double Partition Quick Sort")
+    array8.printSelf()
   }
 }

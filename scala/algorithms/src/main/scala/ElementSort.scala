@@ -160,6 +160,45 @@ object ElementSort {
     def randomQuickSort(): Unit = {
       __randomQuickSort(0, array.length-1)
     }
+
+    private def __doublePartition(l: Int, r: Int): Int = {
+      swap(l, Random.nextInt(r-l+1)+l)
+
+      val v = array(l)
+      var i = l+1
+      var j = r
+      var b = true
+      while (b) {
+        while (i <= r && array(i) < v) i += 1
+        while (j >= l + 1 && array(j) > v) j -= 1
+
+        if (i > j) {
+          b = false
+        } else {
+          swap(i, j)
+          i += 1
+          j -= 1
+        }
+      }
+
+      swap(l, j)
+      j
+    }
+
+    private def __doublePartitionQuickSort(l: Int, r: Int): Unit = {
+      if (l >= r) {
+        return
+      }
+
+      val p = __doublePartition(l, r)
+      __doublePartitionQuickSort(l, p - 1)
+      __doublePartitionQuickSort(p + 1, r)
+    }
+
+    def doublePartitionQuickSort(): Unit = {
+      __doublePartitionQuickSort(0, array.length-1)
+    }
+    
   }
 }
 
