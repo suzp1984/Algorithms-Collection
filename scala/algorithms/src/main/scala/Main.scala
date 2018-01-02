@@ -56,7 +56,14 @@ object Main {
     val array6 = arrayOf(10, Random.nextInt(10))
     array6.printSelf()
     array6.quickSort()
-    println("\n After Merge Sort")
+    println("\n After Quick Sort")
     array6.printSelf()
+
+    println("\n Random Quick Sort")
+    val array7 = arrayOf(10, Random.nextInt(10))
+    array7.printSelf()
+    array7.randomQuickSort()
+    println("\n After Random Quick Sort")
+    array7.printSelf()
   }
 }

@@ -1,5 +1,7 @@
 package io.github.suzp1984.sort
 
+import scala.util.Random
+
 object ElementSort {
 
   implicit class ElementSortImpl[A](val array: Array[A])(implicit evl: A => Ordered[A]) {
@@ -137,6 +139,26 @@ object ElementSort {
 
     def quickSort(): Unit = {
       __quickSort(0, array.length-1)
+    }
+
+    private def __randomPartition(l: Int, r: Int): Int = {
+      swap(l, Random.nextInt(r-l+1)+l)
+
+      __partition(l, r)
+    }
+
+    private def __randomQuickSort(l: Int, r: Int): Unit = {
+      if (l >= r) {
+        return
+      }
+
+      val p = __randomPartition(l, r)
+      __randomQuickSort(l, p - 1)
+      __randomQuickSort(p + 1, r)
+    }
+
+    def randomQuickSort(): Unit = {
+      __randomQuickSort(0, array.length-1)
     }
   }
 }
