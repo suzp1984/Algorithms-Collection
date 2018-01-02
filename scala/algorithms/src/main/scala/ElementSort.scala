@@ -98,6 +98,18 @@ object ElementSort {
     def mergeSort(): Unit = {
       __mergeSort(0, array.length - 1)
     }
+
+    def bottomUpMergeSort(): Unit = {
+      var sz = 1
+      while (sz <= array.length) {
+        var i = 0
+        while (i + sz < array.length) {
+          __merge(i, i+sz-1, Math min(i + sz + sz - 1, array.length - 1))
+          i += sz + sz
+        }
+        sz += sz
+      }
+    }
   }
 }
 

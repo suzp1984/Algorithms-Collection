@@ -44,5 +44,12 @@ object Main {
     array4.mergeSort()
     println("\n After Merge Sort")
     array4.printSelf()
+
+    println("\n Bottom up Merge Sort")
+    val array5 = arrayOf(10, Random.nextInt(10))
+    array5.printSelf()
+    array5.mergeSort()
+    println("\n After Bottom Up Merge Sort")
+    array5.printSelf()
   }
 }
