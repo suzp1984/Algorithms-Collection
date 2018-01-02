@@ -110,6 +110,34 @@ object ElementSort {
         sz += sz
       }
     }
+
+    private def __partition(l : Int, r : Int): Int = {
+      val v = array(l)
+      var j = l
+      (l+1 to r).foreach { i =>
+        if (array(i) < v) {
+          j += 1
+          swap(j, i)
+        }
+      }
+
+      swap(l, j)
+      j
+    }
+
+    private def __quickSort(l: Int, r: Int): Unit = {
+      if (l >= r) {
+        return
+      }
+
+      val p = __partition(l, r)
+      __quickSort(l, p - 1)
+      __quickSort(p + 1, r)
+    }
+
+    def quickSort(): Unit = {
+      __quickSort(0, array.length-1)
+    }
   }
 }
 

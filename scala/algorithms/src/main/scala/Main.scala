@@ -48,8 +48,15 @@ object Main {
     println("\n Bottom up Merge Sort")
     val array5 = arrayOf(10, Random.nextInt(10))
     array5.printSelf()
-    array5.mergeSort()
+    array5.bottomUpMergeSort()
     println("\n After Bottom Up Merge Sort")
     array5.printSelf()
+
+    println("\n Quick Sort")
+    val array6 = arrayOf(10, Random.nextInt(10))
+    array6.printSelf()
+    array6.quickSort()
+    println("\n After Merge Sort")
+    array6.printSelf()
   }
 }
