@@ -198,7 +198,39 @@ object ElementSort {
     def doublePartitionQuickSort(): Unit = {
       __doublePartitionQuickSort(0, array.length-1)
     }
-    
+
+    private def __triplePartitionQuickSort(l: Int, r: Int): Unit = {
+      if (l >= r) {
+        return
+      }
+
+      swap(l, Random.nextInt(r-l+1)+l)
+      val v = array(l)
+      var lt = l
+      var gt = r+1
+      var i = l+1
+
+      while (i < gt) {
+        if (array(i) < v) {
+          swap(i, lt+1)
+          lt += 1
+          i += 1
+        } else if (array(i) > v) {
+          swap(i, gt-1)
+          gt -= 1
+        } else {
+          i += 1
+        }
+      }
+      swap(l, lt)
+
+      __triplePartitionQuickSort(l, lt - 1)
+      __triplePartitionQuickSort(gt, r)
+    }
+
+    def triplePartitionQuickSort(): Unit = {
+      __triplePartitionQuickSort(0, array.length-1)
+    }
   }
 }
 
