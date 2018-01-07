@@ -4,6 +4,7 @@ import io.github.suzp1984.sort.SortUtils.arrayOf
 import io.github.suzp1984.sort.SortUtils.ArrayUtils
 import io.github.suzp1984.sort.ElementSort.ElementSortImpl
 import io.github.suzp1984.sort.UnionFindOne.UnionFind
+import io.github.suzp1984.sort.UnionFindTwo
 
 import scala.util.Random
 
@@ -79,10 +80,17 @@ object Main extends App {
   println("\n After Triple Partition Quick Sort")
   array9.printSelf()
 
-  val unionFind = new UnionFind(10)
+  val unionFind = UnionFind(10)
 
   unionFind.unionElements(0, 3)
   unionFind.unionElements(3, 5)
 
   println(s"\nunion(0, 5) = ${unionFind.isConnected(0, 5)}")
+
+  val unionFindTwo = UnionFindTwo.UnionFind(10)
+  unionFindTwo.unionElements(0, 3)
+  unionFindTwo.unionElements(3, 5)
+
+  println(s"\nunion(0, 5) = ${unionFindTwo.isConnected(0, 5)}")
+
 }
