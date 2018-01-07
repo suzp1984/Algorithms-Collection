@@ -1,8 +1,6 @@
 package io.github.suzp1984.sort
 
-import ElementSort.ElementSortImpl
-import SortUtils.ArrayUtils
-import SortUtils.arrayOf
+import io.github.suzp1984.sort.SortUtils.arrayOf
 
 import scala.util.Random
 
